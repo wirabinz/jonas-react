@@ -217,12 +217,7 @@ const secondaryGenre = genres[1]
 // const count = book.reviews.librarything.reviewsCount ?? "no data";
 // count;
 
-
-
 console.log(getTotalReviewCount(book))
-
-
-
 
 const x = [1, 2, 3, 4, 5].map((i) => i * 2)
 console.log(x);
@@ -230,20 +225,83 @@ console.log(x);
 
 const books = getBooks();
 
-function getTotalReviewCount(book){
-  const goodreads=book.reviews.goodreads.reviewsCount;
-  const librarything =book.reviews.librarything?.reviewsCount ?? 0;
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
   librarything;
   return goodreads + librarything;
 }
 
-const titles = books.map((book) => book.title)
-titles;
+// const titles = books.map((book) => book.title)
+// titles;
 
-const essentialData = books.map((book) => ({
-    title: book.title,
-    author: book.author,
-    reviewCount: getTotalReviewCount(book),
-}));
+// const essentialData = books.map((book) => ({
+//     title: book.title,
+//     author: book.author,
+//     reviewCount: getTotalReviewCount(book),
+// }));
 
-essentialData
+// essentialData;
+
+// const longBooksWithMovie = books
+// .filter((book) => book.pages > 500)
+// .filter((book) => book.hasMovieAdaptation)
+// longBooksWithMovie;
+// 
+// const adventureBooks = books
+// .filter((books) => books.genres.includes('adventure'))
+// .map((book) => book.title)
+// adventureBooks;
+
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0)
+pagesAllBooks;
+
+// const x = [3, 1, 7, 8, 6];
+// const sorted = x
+// .slice()
+// .sort((a, b) => a - b);
+// sorted;
+// x;
+
+// const sortedByPages = books.slice().sort((a,b) => b.pages-a.pages)
+// sortedByPages;
+
+// const newBook = {
+  // id: 6,
+  // titlle: "Harry Potter and the Chamber of Secrets",
+  // author: "J.K. Rowling",
+// };
+// 
+// const booksAfterAdd = [...books, newBook];
+// booksAfterAdd;
+// 
+// const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3)
+// booksAfterDelete;
+// 
+// const booksAfterUpdate = booksAfterDelete.map((book) =>
+  // book.id === 1 ? {...book, pages: 1210} : book
+// );
+// booksAfterUpdate;
+
+
+
+// fetch('https://jsonplaceholder.typicode.com/todos')
+  // .then(res=>res.json())
+  // .then((json)=>console.log(json))
+// 
+// 
+// console.log("jonas")
+
+async function getTodos() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await res.json()
+  console.log(data)
+
+  return data;
+
+}
+
+const todos= getTodos();
+console.log(todos)
+
+console.log("jonas")
